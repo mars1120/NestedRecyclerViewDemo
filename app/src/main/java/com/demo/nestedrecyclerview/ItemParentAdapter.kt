@@ -9,9 +9,9 @@ import kotlinx.android.synthetic.main.view_banner.view.*
 import kotlinx.android.synthetic.main.view_item_parent_recycler.view.*
 
 class HomeItemParentAdapter(private val parents: List<ItemParentModel>) : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
+    private val viewPool = RecyclerView.RecycledViewPool()
     override fun onCreateViewHolder(parent: ViewGroup,
                                     viewType: Int): RecyclerView.ViewHolder {
-
         when (viewType) {
             0 -> return BannerViewHolder(
                 LayoutInflater.from(parent.context)
@@ -37,7 +37,6 @@ class HomeItemParentAdapter(private val parents: List<ItemParentModel>) : Recycl
 
     override fun onBindViewHolder(holder: RecyclerView.ViewHolder,
                                   position: Int) {
-
         when(holder)
         {
             is BannerViewHolder -> {
@@ -45,6 +44,11 @@ class HomeItemParentAdapter(private val parents: List<ItemParentModel>) : Recycl
             }
             is ItemViewHolder -> {
                 holder.textView.text =  parents[position-1].title
+
+                holder.recyclerView.apply {
+                    adapter = ChildAdapter(parents[position-1].children)
+                    setRecycledViewPool(viewPool)
+                }
             }
         }
     }
@@ -56,6 +60,7 @@ class HomeItemParentAdapter(private val parents: List<ItemParentModel>) : Recycl
 
     private inner class ItemViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         val textView: TextView = itemView.tv_title
+        val recyclerView : RecyclerView = itemView.rv_child
     }
 
     companion object {

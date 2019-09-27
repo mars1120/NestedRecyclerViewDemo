@@ -1,5 +1,5 @@
-<androidx.cardview.widget.CardView
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:card_view="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/card_view"
@@ -39,6 +39,7 @@
             android:layout_marginTop="30dp"
             android:orientation="horizontal"
             android:padding="20dp"
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
             tools:layout_editor_absoluteX="74dp" />
 
     </RelativeLayout>
