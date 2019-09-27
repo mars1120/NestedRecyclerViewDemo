@@ -8,7 +8,7 @@ import androidx.recyclerview.widget.RecyclerView
 import kotlinx.android.synthetic.main.view_banner.view.*
 import kotlinx.android.synthetic.main.view_item_parent_recycler.view.*
 
-class HomeItemParentAdapter(private val parents: List<ItemParentModel>) : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
+class ItemParentAdapter(private val parents: List<ItemParentModel>) : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
     private val viewPool = RecyclerView.RecycledViewPool()
     override fun onCreateViewHolder(parent: ViewGroup,
                                     viewType: Int): RecyclerView.ViewHolder {

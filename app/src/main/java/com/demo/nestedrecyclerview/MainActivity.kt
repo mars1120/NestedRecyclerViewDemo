@@ -14,7 +14,7 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
         recyclerView = rv_base
         recyclerView.apply {
-            adapter = HomeItemParentAdapter(getParents())
+            adapter = ItemParentAdapter(getParents())
         }
     }
 
